@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mes Réseaux</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<style>
+  /* Fond Nitro animé */
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(45deg, #0ff, #f0f, #ff0, #0ff, #f0f);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+  }
+
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Titre flottant */
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    animation: float 3s ease-in-out infinite;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #f0f, 0 0 30px #ff0;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px) rotate(-1deg); }
+    100% { transform: translateY(0); }
+  }
+
+  /* Boutons réseaux */
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 15px;
+    padding: 18px 35px;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 1.3rem;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #fff;
+    transition: 0.4s;
+    backdrop-filter: blur(5px);
+  }
+
+  .btn i {
+    font-size: 1.6rem;
+  }
+
+  /* Hover effect */
+  .btn:hover {
+    transform: scale(1.1) rotate(-1deg);
+    box-shadow: 0 0 15px #fff, 0 0 30px #0ff, 0 0 50px #f0f;
+  }
+
+  /* Couleurs spécifiques pour chaque réseau */
+  .instagram { background: #bc2a8d; border-color: #bc2a8d; }
+  .tiktok    { background: #69C9D0; border-color: #69C9D0; }
+  .snapchat  { background: #fffc00; color: #000; border-color: #fffc00; }
+  .discord   { background: #7289da; border-color: #7289da; }
+  .steam     { background: #171a21; border-color: #171a21; }
+  .epic      { background: #313131; border-color: #313131; }
+
+  /* Glow sur hover selon réseau */
+  .instagram:hover { box-shadow: 0 0 15px #bc2a8d, 0 0 30px #e07ed9; }
+  .tiktok:hover    { box-shadow: 0 0 15px #69C9D0, 0 0 30px #00f0ff; }
+  .snapchat:hover  { box-shadow: 0 0 15px #fffc00, 0 0 30px #fff700; }
+  .discord:hover   { box-shadow: 0 0 15px #7289da, 0 0 30px #99aaff; }
+  .steam:hover     { box-shadow: 0 0 15px #171a21, 0 0 30px #555; }
+  .epic:hover      { box-shadow: 0 0 15px #313131, 0 0 30px #888; }
+</style>
+</head>
+<body>
+
+<h1>Mes Réseaux</h1>
+
+<a class="btn instagram" href="https://instagram.com/ilan.bann" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+<a class="btn tiktok" href="https://tiktok.com/@ilan.me" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+<a class="btn snapchat" href="https://www.snapchat.com/add/ilan.bannier" target="_blank"><i class="fab fa-snapchat"></i> Snapchat</a>
+<a class="btn discord" href="https://discord.com/users/nali_moi" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+<a class="btn steam" href="https://steamcommunity.com/id/ilan.game2907" target="_blank"><i class="fab fa-steam"></i> Steam</a>
+<a class="btn epic" href="https://www.epicgames.com/id/ilan61600" target="_blank"><i class="fas fa-gamepad"></i> Epic Games</a>
+
+</body>
+</html>
+
+
