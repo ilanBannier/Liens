@@ -6,7 +6,7 @@
 <title>Mes Réseaux</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 <style>
-  /* Fond galaxie animé */
+  /* Fond galaxie animé en CSS */
   body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -18,8 +18,14 @@
     align-items: center;
     text-align: center;
     color: #fff;
-    background: url('https://cdn.jsdelivr.net/gh/akshaychauhan1020/galaxy-backgrounds/galaxy2.gif') no-repeat center center fixed;
+    background: url('https://cdn.pixabay.com/photo/2018/02/01/06/53/milky-way-3125791_1280.jpg') repeat;
     background-size: cover;
+    animation: moveStars 60s linear infinite;
+  }
+
+  @keyframes moveStars {
+    from { background-position: 0 0; }
+    to { background-position: -2000px 2000px; }
   }
 
   /* Titre flottant */
@@ -58,13 +64,12 @@
     font-size: 1.6rem;
   }
 
-  /* Hover effect */
   .btn:hover {
     transform: scale(1.1) rotate(-1deg);
     box-shadow: 0 0 20px #fff, 0 0 40px #0ff, 0 0 60px #f0f;
   }
 
-  /* Couleurs spécifiques pour chaque réseau */
+  /* Couleurs spécifiques */
   .instagram { background: #bc2a8d; border-color: #bc2a8d; }
   .tiktok    { background: #69C9D0; border-color: #69C9D0; }
   .snapchat  { background: #fffc00; color: #000; border-color: #fffc00; }
@@ -94,6 +99,8 @@
 
 </body>
 </html>
+
+
 
 
 
