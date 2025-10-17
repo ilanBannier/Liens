@@ -6,7 +6,6 @@
 <title>Mes Réseaux</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 <style>
-  /* Fond galaxie animé en CSS */
   body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -18,14 +17,17 @@
     align-items: center;
     text-align: center;
     color: #fff;
-    background: url('https://cdn.pixabay.com/photo/2018/02/01/06/53/milky-way-3125791_1280.jpg') repeat;
-    background-size: cover;
-    animation: moveStars 60s linear infinite;
+    background: radial-gradient(ellipse at bottom, #050d25 0%, #000000 100%);
   }
 
-  @keyframes moveStars {
-    from { background-position: 0 0; }
-    to { background-position: -2000px 2000px; }
+  /* Canvas pour les étoiles */
+  #stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
   }
 
   /* Titre flottant */
@@ -88,6 +90,8 @@
 </head>
 <body>
 
+<canvas id="stars"></canvas>
+
 <h1>Mes Réseaux</h1>
 
 <a class="btn instagram" href="https://instagram.com/ilan.bann" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
@@ -97,10 +101,66 @@
 <a class="btn steam" href="https://steamcommunity.com/id/ilan.game2907" target="_blank"><i class="fab fa-steam"></i> Steam</a>
 <a class="btn epic" href="https://www.epicgames.com/id/ilan61600" target="_blank"><i class="fas fa-gamepad"></i> Epic Games</a>
 
+<script>
+  // Animation des étoiles (fond 3D)
+  const canvas = document.getElementById('stars');
+  const ctx = canvas.getContext('2d');
+
+  let stars = [];
+  const numStars = 400;
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function createStars() {
+    stars = [];
+    for (let i = 0; i < numStars; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        z: Math.random() * canvas.width
+      });
+    }
+  }
+
+  function moveStars() {
+    for (let star of stars) {
+      star.z -= 2;
+      if (star.z <= 0) {
+        star.z = canvas.width;
+      }
+    }
+  }
+
+  function drawStars() {
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "white";
+    for (let star of stars) {
+      const k = 128.0 / star.z;
+      const x = star.x * k + canvas.width / 2;
+      const y = star.y * k + canvas.height / 2;
+      if (x >= 0 && x <= canvas.width && y >= 0 && y <= canvas.height) {
+        const size = (1 - star.z / canvas.width) * 2;
+        ctx.fillRect(x, y, size, size);
+      }
+    }
+  }
+
+  function animate() {
+    moveStars();
+    drawStars();
+    requestAnimationFrame(animate);
+  }
+
+  createStars();
+  animate();
+</script>
+
 </body>
 </html>
-
-
-
-
 
